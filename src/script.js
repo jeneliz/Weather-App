@@ -38,6 +38,7 @@ function showCurrentWeather(response) {
   document.querySelector("#temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  console.log(response.data);
 }
 
 function citySearch(event) {
