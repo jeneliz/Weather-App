@@ -50,3 +50,5 @@ celsiusLink.addEventListener("click", convertFahrenheit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertCelsius);
+
+alert("test");
