@@ -49,6 +49,9 @@ function citySearch(event) {
   axios.get(apiUrl).then(showCurrentWeather);
 }
 
+let localForm = document.querySelector("#local-form");
+localForm.addEventListener("submit", citySearch);
+
 function convertFahrenheit(event) {
   event.preventDefault();
   let tempDisplay = document.querySelector("#temp");
