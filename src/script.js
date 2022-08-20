@@ -13,25 +13,6 @@ let day = days[now.getDay()];
 
 let h5 = document.querySelector("h5");
 h5.innerHTML = `${day} ${now.toLocaleTimeString()}`;
-//
-/* function city(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#local-input");
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = searchInput.value;
-} 
-
-let localForm = document.querySelector("#local-form");
-localForm.addEventListener("submit", city); 
-
-*/
-
-// Resubmit
-/*
-#temp (Current Temp)
-#local-form (Form Id)
-#local-input (text box id)
-*/
 
 function showCurrentWeather(response) {
   document.querySelector("h1").innerHTML = response.data.name;

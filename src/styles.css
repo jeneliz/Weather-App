@@ -5,13 +5,16 @@ body {
     rgb(252, 165, 241) 1.8%,
     rgb(181, 255, 255) 100.5%
   );
+  font-family: "Merriweather", serif;
+  margin: 100px 75px;
 }
 
 header {
   font-family: "Merriweather", serif;
 }
 .container {
-  max-width: 60%;
+  max-width: 800px;
+  min-width: 650px;
 }
 h1,
 h5,
@@ -19,10 +22,7 @@ h3,
 h6 {
   text-align: center;
 }
-body {
-  font-family: "Merriweather", serif;
-  margin: 100px 75px;
-}
+
 .today {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
