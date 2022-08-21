@@ -12,7 +12,10 @@ let days = [
 let day = days[now.getDay()];
 
 let h5 = document.querySelector("h5");
-h5.innerHTML = `${day} ${now.toLocaleTimeString()}`;
+h5.innerHTML = `${day} ${now.toLocaleTimeString([], {
+  hour: "2-digit",
+  minute: "2-digit",
+})}`;
 
 function showCurrentWeather(response) {
   document.querySelector(
@@ -21,7 +24,15 @@ function showCurrentWeather(response) {
   document.querySelector("#temp").innerHTML = Math.round(
     response.data.main.temp
   );
-  console.log(response.data);
+  document.querySelector("h4").innerHTML = `${
+    response.data.weather[0].main
+  } | Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
+
+  let todayEmojiElement = document.querySelector("#todayEmoji");
+  todayEmojiElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function citySearch(event) {
@@ -29,7 +40,6 @@ function citySearch(event) {
   let apiKey = `5ee080a084160ec534f65b526b1fa3f4`;
   let city = document.querySelector("#local-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  //https://api.openweathermap.org/data/2.5/weather?q=$las vegas&appid=5ee080a084160ec534f65b526b1fa3f4&units=imperial
   axios.get(apiUrl).then(showCurrentWeather);
 }
 
