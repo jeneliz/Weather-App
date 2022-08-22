@@ -33,7 +33,8 @@ footer {
   border-radius: 5px;
   padding: 10px;
   max-width: 600px;
-  min-width: 200px;
+  min-width: 300px;
+  min-height: 300px;
   background-color: rgb(253, 187, 244);
 }
 #celsius-link,
@@ -46,10 +47,8 @@ footer {
   left: 8px;
 }
 
-.todayEmoji {
-  margin-left: 50px;
-  font-size: 50px;
-}
+/*.todayEmoji {
+}*/
 
 #local-input {
   display: block;
