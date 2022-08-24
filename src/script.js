@@ -17,13 +17,24 @@ h5.innerHTML = `${day} ${now.toLocaleTimeString([], {
   minute: "2-digit",
 })}`;
 
+let hour = now.getHours();
+if (hour > 4 && hour < 12) {
+  document.querySelector("h1").innerHTML = `Good Morning`;
+} else {
+  if (hour >= 12 && hour < 18) {
+    document.querySelector("h1").innerHTML = `Good Afternoon`;
+  }
+  document.querySelector("h1").innerHTML = `Good Evening`;
+  console.log(hour);
+}
+
 function showCurrentWeather(response) {
   document.querySelector(
     "h1"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country} `;
-  document.querySelector("#temp").innerHTML = Math.round(
+  document.querySelector("#temp").innerHTML = `Currently ${Math.round(
     response.data.main.temp
-  );
+  )}`;
   document.querySelector("h4").innerHTML = `${
     response.data.weather[0].main
   } | Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
