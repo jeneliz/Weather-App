@@ -20,13 +20,13 @@ h5.innerHTML = `${day} ${now.toLocaleTimeString([], {
 let hour = now.getHours();
 if (hour > 4 && hour < 12) {
   document.querySelector("h1").innerHTML = `Good Morning`;
-} else {
-  if (hour >= 12 && hour < 18) {
-    document.querySelector("h1").innerHTML = `Good Afternoon`;
-  }
-  document.querySelector("h1").innerHTML = `Good Evening`;
-  console.log(hour);
 }
+if (hour > 11 && hour < 18) {
+  document.querySelector("h1").innerHTML = `Good Afternoon`;
+} else {
+  document.querySelector("h1").innerHTML = `Good Evening`;
+}
+console.log(hour);
 
 function showCurrentWeather(response) {
   document.querySelector(
@@ -34,7 +34,7 @@ function showCurrentWeather(response) {
   ).innerHTML = `${response.data.name}, ${response.data.sys.country} `;
   document.querySelector("#temp").innerHTML = `Currently ${Math.round(
     response.data.main.temp
-  )}`;
+  )}°F`;
   document.querySelector("h4").innerHTML = `${
     response.data.weather[0].main
   } | Wind Speed: ${Math.round(response.data.wind.speed)} mph`;
@@ -44,6 +44,10 @@ function showCurrentWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  document.querySelector("h6").innerHTML = `H: ${Math.round(
+    response.data.main.temp_max
+  )}° | L: ${Math.round(response.data.main.temp_min)}°`;
+
   fahrenheitTemperature = Math.round(response.data.main.temp);
 }
 
