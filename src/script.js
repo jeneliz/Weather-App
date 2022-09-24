@@ -18,13 +18,13 @@ h5.innerHTML = `${day} ${now.toLocaleTimeString([], {
 })}`;
 
 let hour = now.getHours();
-if (hour >= 5 && hour < 12) {
+if (hour >= 5 && hour <= 11) {
   document.querySelector("h1").innerHTML = `Good Morning`;
 }
-if (hour > 11 && hour < 18) {
+if (hour >= 12 && hour <= 17) {
   document.querySelector("h1").innerHTML = `Good Afternoon`;
 }
-if (hour < 5 && hour >= 19) {
+if (hour <= 4 || hour >= 18) {
   document.querySelector("h1").innerHTML = `Good Evening`;
 }
 console.log(hour);
