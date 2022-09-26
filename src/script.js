@@ -114,21 +114,3 @@ function citySearch(event) {
 
 let localForm = document.querySelector("#local-form");
 localForm.addEventListener("submit", citySearch);
-
-function convertFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temp");
-  document.querySelector("#temp").innerHTML = fahrenheitTemperature;
-}
-
-function convertCelsius(event) {
-  event.preventDefault();
-  let celsiusTemperature = (fahrenheitTemperature - 32) * 0.5556;
-  document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertCelsius);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertFahrenheit);
