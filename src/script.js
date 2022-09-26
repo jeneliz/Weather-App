@@ -27,7 +27,57 @@ if (hour >= 12 && hour <= 17) {
 if (hour <= 4 || hour >= 18) {
   document.querySelector("h1").innerHTML = `Good Evening`;
 }
-console.log(hour);
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
+function fiveDayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index >= 1 && index < 6)
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+            <div class="nextOne"> 
+              ${formatDay(forecastDay.dt)}
+              <div>
+              <img src="https://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="weather icon" width="40"/>
+              </div>
+  <div><strong>High ${Math.round(forecastDay.temp.max)}°F</strong></div>
+            <div>Low ${Math.round(forecastDay.temp.min)}°F</div>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function showForecast(coordinates) {
+  let apiKey = `62bc298785543e137bc6756e514eb1c3`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiURL).then(fiveDayForecast);
+}
 
 function showCurrentWeather(response) {
   document.querySelector(
@@ -50,6 +100,8 @@ function showCurrentWeather(response) {
   )}° | L: ${Math.round(response.data.main.temp_min)}°`;
 
   fahrenheitTemperature = Math.round(response.data.main.temp);
+
+  showForecast(response.data.coord);
 }
 
 function citySearch(event) {
