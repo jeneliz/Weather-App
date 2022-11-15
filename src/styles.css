@@ -11,9 +11,7 @@ body {
 header {
   font-family: "Merriweather", serif;
 }
-.container {
-  max-width: 800px;
-}
+
 h1,
 h5,
 h3,
@@ -46,30 +44,7 @@ footer {
   left: 8px;
 }
 
-.col {
-  max-width: 150px;
-}
 .nextOne {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  background-color: rgb(253, 187, 244);
-}
-.nextTwo {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  background-color: rgb(253, 187, 244);
-}
-.nextThree {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  background-color: rgb(253, 187, 244);
-}
-.nextFour {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  background-color: rgb(253, 187, 244);
-}
-.nextFive {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   background-color: rgb(253, 187, 244);
