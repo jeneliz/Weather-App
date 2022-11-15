@@ -55,10 +55,10 @@ function fiveDayForecast(response) {
     if (index >= 1 && index < 6)
       forecastHTML =
         forecastHTML +
-        `<div class="col">
+        `<div class="col-sm pb-3">
             <div class="nextOne"> 
               ${formatDay(forecastDay.dt)}
-              <div>
+              <div >
               <img src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" alt="weather icon" width="40"/>
